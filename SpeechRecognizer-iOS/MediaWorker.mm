@@ -20,10 +20,12 @@ class AgoraAudioFrameObserver : public agora::media::IAudioFrameObserver
 public:
     virtual bool onRecordAudioFrame(AudioFrame& audioFrame) override
     {
-        AVAudioChannelLayout *chLayout = [[AVAudioChannelLayout alloc] initWithLayoutTag:kAudioChannelLayoutTag_Mono];
+        bool interleaved = audioFrame.channels == 2;
+        AudioChannelLayoutTag tag = audioFrame.channels == 1 ? kAudioChannelLayoutTag_Mono : kAudioChannelLayoutTag_Stereo;
+        AVAudioChannelLayout *chLayout = [[AVAudioChannelLayout alloc] initWithLayoutTag:tag];
         AVAudioFormat *chFormat = [[AVAudioFormat alloc] initWithCommonFormat:AVAudioPCMFormatInt16
                                                                    sampleRate:audioFrame.samplesPerSec
-                                                                  interleaved:NO
+                                                                  interleaved:interleaved
                                                                 channelLayout:chLayout];
         
         size_t size = audioFrame.bytesPerSample * audioFrame.samples;

@@ -171,7 +171,7 @@ class AgoraCaptureSession: NSObject {
     private func configureAudioInput(_ asbd: AudioStreamBasicDescription) -> AVAssetWriterInput {
         // Audio Output Configuration
         var acl = AudioChannelLayout()
-        acl.mChannelLayoutTag = kAudioChannelLayoutTag_Mono
+        acl.mChannelLayoutTag = asbd.mChannelsPerFrame == 1 ? kAudioChannelLayoutTag_Mono : kAudioChannelLayoutTag_Stereo
         acl.mChannelBitmap = AudioChannelBitmap(rawValue: UInt32(0))
         acl.mNumberChannelDescriptions = UInt32(0)
 
@@ -179,7 +179,7 @@ class AgoraCaptureSession: NSObject {
 
         let audioOutputSettings: Dictionary<String, Any> = [
             AVFormatIDKey : UInt(kAudioFormatMPEG4AAC),
-            AVNumberOfChannelsKey : UInt(1),
+            AVNumberOfChannelsKey : UInt(asbd.mChannelsPerFrame),
             AVSampleRateKey : asbd.mSampleRate,
             AVEncoderBitRateKey : 96000,
             AVChannelLayoutKey : NSData(bytes: &acl, length: acll),
