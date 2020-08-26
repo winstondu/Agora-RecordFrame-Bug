@@ -9,6 +9,8 @@ With this modified sample app, you can:
 - Toggle a temporary recording of your voice.
 
 ## Bug replication Steps
+Example screen-recording detailing walkthrough under Run 2 (https://github.com/winstondu/Agora-RecordFrame-Bug/files/5133062/Archive.zip)
+
 1. First, setup and run this project under all the instructions in the all the original sections below
 2. Run 1 (without set profile)  
     1. Join a channel using the English Locale.
