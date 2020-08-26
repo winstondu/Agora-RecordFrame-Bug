@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GZF-7S-WaW">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GZF-7S-WaW">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -37,14 +35,14 @@
                                 </constraints>
                             </view>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="gZ0-oz-iqm">
-                                <rect key="frame" x="153.5" y="221" width="107" height="29"/>
+                                <rect key="frame" x="148.5" y="221" width="117" height="32"/>
                                 <segments>
                                     <segment title="en_US"/>
                                     <segment title="zh_CN"/>
                                 </segments>
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bue-2c-Nkp">
-                                <rect key="frame" x="123" y="273" width="168" height="44"/>
+                                <rect key="frame" x="123" y="276" width="168" height="44"/>
                                 <color key="backgroundColor" red="0.013304970229999999" green="0.41552370789999998" blue="0.84779512879999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="7Zx-bV-fZG"/>
@@ -102,7 +100,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remote:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c3n-xz-gdW">
-                                <rect key="frame" x="16" y="52" width="64" height="21"/>
+                                <rect key="frame" x="16" y="52" width="64" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -114,7 +112,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="HKl-ZV-edF">
-                                <rect key="frame" x="16" y="81" width="382" height="703"/>
+                                <rect key="frame" x="16" y="80.5" width="382" height="616.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -139,6 +137,25 @@
                                     <action selector="doLeaveChannel" destination="BYZ-38-t0r" eventType="touchUpInside" id="Kf6-aV-Ehq"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HdW-HZ-nzI">
+                                <rect key="frame" x="123" y="727" width="168" height="44"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="ZtC-eE-FGn"/>
+                                    <constraint firstAttribute="width" constant="168" id="aXK-bf-W1n"/>
+                                </constraints>
+                                <state key="normal" title="Toggle Recording">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="toggleRecording" destination="BYZ-38-t0r" eventType="touchUpInside" id="x2v-hA-vbf"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -148,16 +165,21 @@
                             <constraint firstItem="HKl-ZV-edF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Jlu-YB-W2p"/>
                             <constraint firstItem="Ox7-iM-e4s" firstAttribute="centerY" secondItem="c3n-xz-gdW" secondAttribute="centerY" id="er2-Yc-4jh"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="tFZ-6k-Wc2" secondAttribute="bottom" constant="18" id="fIU-ji-s6a"/>
-                            <constraint firstItem="tFZ-6k-Wc2" firstAttribute="top" secondItem="HKl-ZV-edF" secondAttribute="bottom" constant="16" id="hRh-P0-kYK"/>
+                            <constraint firstItem="HdW-HZ-nzI" firstAttribute="leading" secondItem="tFZ-6k-Wc2" secondAttribute="leading" id="gtq-Hc-Mif"/>
                             <constraint firstItem="tFZ-6k-Wc2" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="lcX-ol-5cc"/>
+                            <constraint firstItem="tFZ-6k-Wc2" firstAttribute="top" secondItem="HdW-HZ-nzI" secondAttribute="bottom" constant="29" id="llg-PJ-Ucf"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="tFZ-6k-Wc2" secondAttribute="bottom" constant="18" id="msI-6F-IIk"/>
+                            <constraint firstItem="HdW-HZ-nzI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qga-S3-fOf"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ox7-iM-e4s" secondAttribute="trailing" constant="16" id="wXd-Km-YVh"/>
                             <constraint firstItem="HKl-ZV-edF" firstAttribute="top" secondItem="c3n-xz-gdW" secondAttribute="bottom" constant="8" id="xiE-ol-vfZ"/>
+                            <constraint firstItem="HdW-HZ-nzI" firstAttribute="top" secondItem="HKl-ZV-edF" secondAttribute="bottom" constant="30" id="zcN-Eq-NNc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="remoteTextView" destination="HKl-ZV-edF" id="E1i-sc-aqC"/>
+                        <outlet property="remoteToggle" destination="HdW-HZ-nzI" id="Seo-nk-aAu"/>
                         <outlet property="remoteUidLabel" destination="Ox7-iM-e4s" id="esM-dd-fCb"/>
                     </connections>
                 </viewController>

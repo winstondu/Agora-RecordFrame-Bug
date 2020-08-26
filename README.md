@@ -1,13 +1,31 @@
-# Speech Recognizer
+# Speech Recognizer Modification
 
-*English | [中文](README.zh.md)*
+This app demonstrates a particular bug that seems to occur when an audio profile is set, causing any recorded audio frames received from IAudioFrameObserver to be distorted.
 
-The SpeechRecognizer-iOS Sample App shows how to perform speech recognition on audio coming from the remote user in an Agora channel.
-
-With this sample app, you can:
+With this modified sample app, you can:
 
 - Voice chat
 - Speech to text
+- Toggle a temporary recording of your voice.
+
+## Bug replication Steps
+1. First, setup and run this project under all the instructions in the all the original sections below
+2. Run 1 (without set profile)  
+    1. Join a channel using the English Locale.
+    2. Tap the "Toggle Recording Button"
+    3. Say "Testing, Testing, Testing" a few times over.
+    4. Tap the "Toggle Recording Button" again.
+    5. The iOS Activity Sheet now pops up. Hit "Save Video" to save the video to your iOS camera roll (aka Photo album).
+    6. Now go to your iOS Photos, and find the video you just saved. Play the video. You should hear a clear recording of your own voice.
+3. Run 2 (with setProfile)   
+    1. In the code, uncomment line #40 of `channelviewcontroller.swift`:
+        ```
+        engine.setAudioProfile(.musicStandardStereo, scenario: .chatRoomGaming)
+        ```
+    2. Now run the code, and repeat all the steps of the previous run.
+    3. In this case, the recording of your voice will be EXTREMELY distorted.
+
+
 
 ## Prerequisites
 - Xcode 10.0+
